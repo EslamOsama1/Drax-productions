@@ -8044,7 +8044,7 @@ body {
 .about-subtitle {
   display: block;
   margin-bottom: 18px;
-
+  text-align: center;
   color: #7A0F18;
   font-size: 30px;
   font-weight: bold;
