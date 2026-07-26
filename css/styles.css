@@ -7782,17 +7782,12 @@ body {
 =================================================*/
 
 .hero-top-text {
-
   display: block;
-
-  letter-spacing: 6px;
-
-  font-size: .9rem;
-
+  font-size: 0.9rem;
+  /* letter-spacing: 0; */
+  line-height: 1.8;
   opacity: 0;
-
-  animation: fadeUp .8s ease forwards;
-
+  animation: fadeUp 0.8s ease forwards;
 }
 
 .hero-logo {
