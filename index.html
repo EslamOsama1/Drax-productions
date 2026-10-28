@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 
 <head>
     <meta charset="utf-8" />
@@ -25,40 +25,39 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/img/لوجو.png" />
 
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Theme CSS -->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container px-4 px-lg-5">
+    <nav class="navbar" id="mainNav">
+        <div class="container">
 
-            <a class="navbar-brand fw-bold" href="#page-top">
+            <a class="navbar-brand" href="#page-top">
                 <span>DRAX</span>
                 <small>Productions</small>
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="فتح وإغلاق القائمة">
 
                 القائمة
-                <i class="fas fa-bars"></i>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
 
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="navbar-collapse" id="navbarResponsive">
 
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#about">
                             من نحن
@@ -92,21 +91,21 @@
 
     <!-- Masthead-->
     <header class="masthead">
-        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+        <div class="container">
 
-            <div class="text-center hero-content">
+            <div class="hero-content">
 
-                <span class="hero-top-text text-white-50 mb-3">
+                <span class="hero-top-text">
                     الإنتاج المرئي • صناعة المحتوى • التسويق الإبداعي
                 </span>
 
                 <img src="assets/img/ChatGPT Image Jul 25, 2026, 03_12_42 PM.png" alt="DRAX" class="hero-logo">
 
-                <h2 class="hero-description text-white-50 mx-auto mt-4 mb-5">
+                <h1 class="hero-description">
                     نحوّل الأفكار إلى قصص بصرية مؤثرة، ونصنع تجارب إبداعية تعكس هوية علامتك التجارية وتترك أثرًا يدوم.
-                </h2>
+                </h1>
 
-                <a class="btn btn-primary px-5 py-3 hero-btn" href="#projects">
+                <a class="hero-btn" href="#projects">
                     استكشف أعمالنا
                 </a>
 
@@ -124,11 +123,11 @@
 
             <div class="about-wrapper">
 
-                <div class="row align-items-center gy-5">
+                <div class="about-grid">
 
                     <!-- Image -->
 
-                    <div class="col-lg-6">
+                    <div>
 
                         <div class="about-image">
 
@@ -141,7 +140,7 @@
 
                     <!-- Content -->
 
-                    <div class="col-lg-6">
+                    <div>
 
                         <span class="about-subtitle">
 
@@ -168,7 +167,12 @@
 
                             <div class="feature">
 
-                                <i class="fas fa-film"></i>
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                    focusable="false">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                                    <path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4" />
+                                </svg>
 
                                 <div>
 
@@ -184,7 +188,11 @@
 
                             <div class="feature">
 
-                                <i class="fas fa-lightbulb"></i>
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                    focusable="false">
+                                    <path d="M9 18h6M10 21h4M8 15c-5-5-2-12 4-12s9 7 4 12l-1 3H9z" />
+                                </svg>
 
                                 <div>
 
@@ -200,7 +208,12 @@
 
                             <div class="feature">
 
-                                <i class="fas fa-camera"></i>
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                    focusable="false">
+                                    <path d="m8 5 1-2h6l1 2h4a2 2 0 0 1 2 2v12H2V7a2 2 0 0 1 2-2z" />
+                                    <circle cx="12" cy="12" r="4" />
+                                </svg>
 
                                 <div>
 
@@ -216,7 +229,12 @@
 
                             <div class="feature">
 
-                                <i class="fas fa-pen-nib"></i>
+                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"
+                                    focusable="false">
+                                    <path d="m3 21 4-12 9-6 5 5-6 9zM3 21l8-8M7 9l8 8M16 3l5 5" />
+                                    <circle cx="12" cy="12" r="1" />
+                                </svg>
 
                                 <div>
 
@@ -251,9 +269,9 @@
 
             <!-- Section Title -->
 
-            <div class="row text-center mb-5">
+            <div class="section-heading">
 
-                <div class="col-lg-8 mx-auto">
+                <div class="heading-content">
 
                     <span class="projects-subtitle">
                         أعمالنا
@@ -499,16 +517,16 @@
     </section>
 
     <!-- TEAM -->
-    <section class="team-section bg-black reveal" id="team" dir="rtl">
-        <div class="container px-4 px-lg-5">
+    <section class="team-section" id="team" dir="rtl">
+        <div class="container">
 
-            <div class="row mb-5">
-                <div class="col-lg-8">
+            <div class="team-heading">
+                <div>
                     <span class="section-subtitle">فريق القيادة</span>
                     <h2 class="team-title">العقول التي تقود DRAX</h2>
                 </div>
 
-                <div class="col-lg-4 d-flex align-items-end">
+                <div class="team-summary">
                     <p class="team-intro">
                         خلف كل مشروع ناجح فريق يؤمن بأن الإبداع يبدأ بالفكرة، وأن
                         التفاصيل هي ما يصنع الأثر. في DRAX نجمع بين الرؤية
@@ -519,14 +537,13 @@
             </div>
 
             <!-- Member 1 -->
-            <div class="row align-items-center team-member">
+            <div class="team-member">
 
-                <div class="col-lg-5">
-                    <img src="assets/img/team/photo_2026-07-22_15-16-39.jpg" class="img-fluid team-img"
-                        alt="عبدالرحمن الوعيل">
+                <div>
+                    <img src="assets/img/team/photo_2026-07-22_15-16-39.jpg" class="team-img" alt="عبدالرحمن الوعيل">
                 </div>
 
-                <div class="col-lg-7">
+                <div>
 
                     <span class="member-role">
                         الرئيس التنفيذي والمؤسس
@@ -547,14 +564,13 @@
             </div>
 
             <!-- Member 2 -->
-            <div class="row align-items-center flex-lg-row-reverse team-member">
+            <div class="team-member reverse">
 
-                <div class="col-lg-5">
-                    <img src="assets/img/team/photo_2026-07-22_15-16-32.jpg" class="img-fluid team-img"
-                        alt="عادل عسيري">
+                <div>
+                    <img src="assets/img/team/photo_2026-07-22_15-16-32.jpg" class="team-img" alt="عادل عسيري">
                 </div>
 
-                <div class="col-lg-7">
+                <div>
 
                     <span class="member-role">
                         المدير التنفيذي للعمليات والمؤسس
@@ -575,14 +591,13 @@
             </div>
 
             <!-- Member 3 -->
-            <div class="row align-items-center team-member">
+            <div class="team-member">
 
-                <div class="col-lg-5">
-                    <img src="assets/img/team/photo_2026-07-22_15-16-26.jpg" class="img-fluid team-img"
-                        alt="يزن آل شوك">
+                <div>
+                    <img src="assets/img/team/photo_2026-07-22_15-16-26.jpg" class="team-img" alt="يزن آل شوك">
                 </div>
 
-                <div class="col-lg-7">
+                <div>
 
                     <span class="member-role">
                         مدير تطوير الأعمال والمؤسس
@@ -607,7 +622,7 @@
     <!-- Contact-->
     <section class="contact-section reveal" id="contact">
         <div class="container">
-            <div class="section-title text-center">
+            <div class="section-title">
                 <span>تواصل معنا</span>
                 <h2>يسعدنا تواصلك معنا</h2>
                 <p>يمكنك التواصل معنا أو متابعتنا عبر منصاتنا الرسمية</p>
@@ -619,41 +634,66 @@
                     <img src="assets/img/logo.png" alt="Logo">
                 </div>
 
-                <a href="mailto:contact@drax.productionsال" class="contact-item email">
-                    <i class="bi bi-envelope-fill"></i>
+                <a href="mailto:contact@drax.productions" class="contact-item email" aria-label="email">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <rect x="2" y="4" width="20" height="16" rx="3" />
+                        <path d="m3 6 9 7 9-7" />
+                    </svg>
                     <span>Email</span>
                 </a>
 
                 <a href="https://www.linkedin.com/company/drax-production/?viewAsMember=true" target="_blank"
-                    class="contact-item linkedin">
-                    <i class="bi bi-linkedin"></i>
+                    rel="noopener noreferrer" class="contact-item linkedin" aria-label="linkedin">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <rect x="2" y="2" width="20" height="20" rx="3" />
+                        <path d="M7 10v7M7 7v.1M11 17v-7m0 3a3 3 0 0 1 6 0v4" />
+                    </svg>
                     <span>LinkedIn</span>
                 </a>
 
-                <a href="https://wa.me/966543188615" target="_blank" class="contact-item whatsapp">
-                    <i class="bi bi-whatsapp"></i>
+                <a href="https://wa.me/966543188615" target="_blank" rel="noopener noreferrer"
+                    class="contact-item whatsapp" aria-label="whatsapp">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M4 19 2 22l5-1a10 10 0 1 0-3-2z" />
+                        <path d="m8 7-1 2c1 4 4 7 8 8l2-2-3-2-1 1c-2-1-3-2-3-3l1-1z" />
+                    </svg>
                     <span>WhatsApp</span>
                 </a>
-                <a href="https://x.com/Drax_production" target="_blank" class="contact-item x">
-                    <i class="bi bi-twitter-x"></i>
+                <a href="https://x.com/Drax_production" target="_blank" rel="noopener noreferrer" class="contact-item x"
+                    aria-label="x">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="m4 3 16 18h-4L2 3h4ZM20 3 4 21" />
+                    </svg>
                     <span>X</span>
                 </a>
 
-                <a href="https://www.instagram.com/draxsa/?hl=en" target="_blank" class="contact-item instagram">
-                    <i class="bi bi-instagram"></i>
+                <a href="https://www.instagram.com/draxsa/?hl=en" target="_blank" rel="noopener noreferrer"
+                    class="contact-item instagram" aria-label="instagram">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <rect x="3" y="3" width="18" height="18" rx="5" />
+                        <circle cx="12" cy="12" r="4" />
+                        <circle cx="17.5" cy="6.5" r=".6" />
+                    </svg>
                     <span>Instagram</span>
                 </a>
 
-                <a href="https://www.tiktok.com/@drax.sa" target="_blank" class="contact-item tiktok">
-                    <i class="bi bi-tiktok"></i>
+                <a href="https://www.tiktok.com/@drax.sa" target="_blank" rel="noopener noreferrer"
+                    class="contact-item tiktok" aria-label="tiktok">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path d="M14 3v12a5 5 0 1 1-5-5M14 3c0 4 3 6 7 6M10 10v4a2 2 0 1 0 1 2V3h3" />
+                    </svg>
                     <span>TikTok</span>
                 </a>
 
             </div>
         </div>
     </section>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 

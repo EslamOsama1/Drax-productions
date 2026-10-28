@@ -1,139 +1,73 @@
-/*!
-* Start Bootstrap - Grayscale v7.0.6 (https://startbootstrap.com/theme/grayscale)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-grayscale/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
+/* DRAX — navigation and progressive scroll effects, no dependencies. */
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('#mainNav');
+  const toggle = document.querySelector('.navbar-toggler');
+  const menu = document.querySelector('#navbarResponsive');
+  const links = [...document.querySelectorAll('#mainNav .nav-link')];
+  const mobile = window.matchMedia('(max-width: 991px)');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-history.scrollRestoration = "manual";
-
-window.addEventListener("load", () => {
-    window.scrollTo(0, 0);
-});
-
-
-window.addEventListener('DOMContentLoaded', event => {
-
-    // Navbar shrink function
-    var navbarShrink = function () {
-        const navbarCollapsible = document.body.querySelector('#mainNav');
-        if (!navbarCollapsible) {
-            return;
-        }
-        if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
-        } else {
-            navbarCollapsible.classList.add('navbar-shrink')
-        }
-
-    };
-
-    // Shrink the navbar 
-    navbarShrink();
-
-    // Shrink the navbar when page is scrolled
-    document.addEventListener('scroll', navbarShrink);
-
-const sections = document.querySelectorAll("section[id]");
-const navLinks = document.querySelectorAll("#mainNav .nav-link");
-
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-
-                navLinks.forEach(link => link.classList.remove("active"));
-
-                const activeLink = document.querySelector(
-                    `#mainNav .nav-link[href="#${entry.target.id}"]`
-                );
-
-                if (activeLink) {
-                    activeLink.classList.add("active");
-                }
-            }
-        });
-    },
-    {
-        threshold: 0.7
+  const setMenu = (open) => {
+    menu.hidden = mobile.matches && !open;
+    toggle.setAttribute('aria-expanded', String(mobile.matches && open));
+    nav.classList.toggle('menu-open', mobile.matches && open);
+  };
+  setMenu(false);
+  toggle.addEventListener('click', () => setMenu(toggle.getAttribute('aria-expanded') !== 'true'));
+  mobile.addEventListener('change', () => setMenu(false));
+  links.forEach(link => link.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      setMenu(false);
+      toggle.focus();
     }
-);
+  });
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target)) setMenu(false);
+  });
 
-sections.forEach(section => sectionObserver.observe(section));
-
-    // Collapse responsive navbar when toggler is visible
-    const navbarToggler = document.body.querySelector('.navbar-toggler');
-    const responsiveNavItems = [].slice.call(
-        document.querySelectorAll('#navbarResponsive .nav-link')
-    );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
+  const sections = [...document.querySelectorAll('section[id]')];
+  let ticking = false;
+  const updateNavigation = () => {
+    nav.classList.toggle('navbar-shrink', window.scrollY > 24);
+    const marker = nav.getBoundingClientRect().height + window.innerHeight * .22;
+    let current = '';
+    sections.forEach(section => {
+      if (section.getBoundingClientRect().top <= marker) current = section.id;
     });
-
-});
-
-
-window.addEventListener("load", () => {
-
-    const nav = document.querySelector("#mainNav .navbar-nav");
-    const indicator = document.querySelector(".nav-indicator");
-
-    function updateIndicator() {
-
-        const active = document.querySelector("#mainNav .nav-link.active");
-
-        if (!active) return;
-
-        const navRect = nav.getBoundingClientRect();
-        const linkRect = active.getBoundingClientRect();
-
-        indicator.style.left = (linkRect.left - navRect.left) + "px";
-        indicator.style.width = linkRect.width + "px";
-
+    if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 8) {
+      current = sections.at(-1)?.id || current;
     }
-
-    updateIndicator();
-
-    window.addEventListener("resize", updateIndicator);
-
-    const observer = new MutationObserver(updateIndicator);
-
-    document.querySelectorAll("#mainNav .nav-link").forEach(link => {
-
-        observer.observe(link, {
-            attributes: true,
-            attributeFilter: ["class"]
-        });
-
+    links.forEach(link => {
+      const active = link.hash === `#${current}`;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
     });
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(updateNavigation); }
+  }, { passive: true });
+  window.addEventListener('resize', updateNavigation);
+  updateNavigation();
 
+  if ('IntersectionObserver' in window && !reducedMotion.matches) {
+    const items = document.querySelectorAll('.about-wrapper,.project-card,.team-member,.team-heading,.section-heading,.section-title,.contact-circle');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else if (entry.boundingClientRect.top > window.innerHeight || entry.boundingClientRect.bottom < 0) {
+          // Replay only after the whole item leaves the screen, avoiding flicker.
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, { threshold: .08, rootMargin: '0px 0px 40px 0px' });
+    items.forEach(item => { item.classList.add('reveal-item'); observer.observe(item); });
+    document.documentElement.classList.add('motion-ready');
+    reducedMotion.addEventListener('change', event => {
+      document.documentElement.classList.toggle('motion-ready', !event.matches);
+    });
+  }
 });
-
-const cards = document.querySelectorAll(".project-card");
-
-const observer = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-
-            if (entry.isIntersecting) {
-                entry.target.classList.add("show");
-            } else {
-                entry.target.classList.remove("show");
-            }
-
-        });
-    },
-    {
-        threshold: 0.35
-    }
-);
-
-cards.forEach(card => observer.observe(card));
-
-
