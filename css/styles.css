@@ -1282,3 +1282,131 @@ section {
     translate: none;
   }
 }
+
+
+/* Smooth hero motion: append after the existing DRAX styles. */
+@keyframes draxSmoothBreathe {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.045);
+  }
+}
+
+@keyframes draxSmoothBreatheMobile {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+}
+
+@keyframes draxSmoothLogoIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -28px, 0) scale(.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes draxSmoothFloat {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -7px, 0);
+  }
+}
+
+@keyframes draxSmoothLight {
+
+  0%,
+  100% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+    opacity: .65;
+  }
+
+  50% {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+    opacity: .95;
+  }
+}
+
+.hero-content {
+  scale: none;
+  animation: draxSmoothBreathe 9s cubic-bezier(.45, 0, .55, 1) 1.7s infinite;
+  will-change: transform;
+}
+
+.hero-logo {
+  translate: none;
+  filter: none;
+  animation: draxSmoothLogoIn 1.3s var(--ease) .2s both,
+    draxSmoothFloat 9s cubic-bezier(.45, 0, .55, 1) 1.5s infinite;
+  will-change: transform;
+}
+
+.masthead::before {
+  animation-duration: 32s;
+  will-change: transform;
+}
+
+.masthead::after {
+  inset: -8%;
+  animation: draxSmoothLight 14s cubic-bezier(.45, 0, .55, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* Keep the button glow static instead of repainting its shadow every frame. */
+.hero-btn {
+  animation: draxRise 1s var(--ease) 1s both;
+  box-shadow: 0 8px 30px #0003, 0 0 24px #b52a4026;
+}
+
+.hero-btn::after {
+  inset: -80% auto -80% -55%;
+  left: -55%;
+  transform: translate3d(0, 0, 0) skewX(-22deg);
+  transition: transform .8s var(--ease);
+}
+
+.hero-btn:hover::after,
+.hero-btn:focus-visible::after {
+  left: -55%;
+  transform: translate3d(600%, 0, 0) skewX(-22deg);
+}
+
+@media (max-width:991px) {
+  .hero-content {
+    animation-name: draxSmoothBreatheMobile;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+
+  .hero-content,
+  .hero-logo,
+  .masthead::before,
+  .masthead::after {
+    animation: none !important;
+    will-change: auto;
+    transform: none;
+    scale: none;
+    translate: none;
+  }
+}
